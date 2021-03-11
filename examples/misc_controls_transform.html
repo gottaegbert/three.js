@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - transform controls</title>
+		<title>siyu_three.js webgl - transform controls</title>
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
@@ -10,14 +10,6 @@
 		<link type="text/css" rel="stylesheet" href="main.css" />
 	</head>
 	<body>
-		<style>
-			body {
-				color: #444;
-			}
-			a {
-				color: #08f;
-			}
-		</style>
 
 		<div id="info">
 			"W" translate | "E" rotate | "R" scale | "+/-" adjust size<br />
@@ -203,9 +195,11 @@
 			
 
 				const closedSpline = new THREE.CatmullRomCurve3( [
-					new THREE.Vector3( 0, 0, 0 ),
-					new THREE.Vector3( 34, -2, -2 )
-					
+					 new THREE.Vector3(0, 0, 0),
+    				 new THREE.Vector3(0, 0, 0),
+    				 new THREE.Vector3(0, 0, 5),
+    				 new THREE.Vector3(0, -10, 0),
+					 new THREE.Vector3(0, -10, 0)
 				] );
 
 				closedSpline.curveType = 'catmullrom';
@@ -227,7 +221,7 @@
 					shapes.forEach((shape, j) => {
 						// Finally we can take each shape and extrude it
 						const geometry = new THREE.ExtrudeGeometry(shape, {
-							steps: 100,
+							steps: 10,
 							bevelEnabled: false,
 							extrudePath: closedSpline
 						});
@@ -404,9 +398,6 @@
 				return canvas;
 
 			}
-
-				
-
 
 			function onWindowResize() {
 				const aspect = window.innerWidth / window.innerHeight;
